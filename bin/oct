@@ -2,11 +2,11 @@
 
 $:.unshift(File.dirname(__FILE__) + '/../lib')
 
-require 'basic_app'
+require 'oct'
 require 'optparse'
 require 'term/ansicolor'
 
-available_actions = BasicApp::AVAILABLE_ACTIONS
+available_actions = Oct::AVAILABLE_ACTIONS
 
 banner = <<BANNER
 TODO: application tag line
@@ -39,7 +39,7 @@ OptionParser.new do |opts|
   end
 
   opts.on("--version", "Display current version") do
-    puts "basic_app, version " + BasicApp.version
+    puts "oct, version " + Oct.version
     exit 0
   end
 
@@ -60,8 +60,8 @@ OptionParser.new do |opts|
   begin
     opts.parse!
   rescue OptionParser::InvalidOption => e
-    puts "basic_app #{e}"
-    puts "basic_app --help for more information"
+    puts "oct #{e}"
+    puts "oct --help for more information"
     exit 1
   end
 
@@ -73,5 +73,5 @@ else
   Term::ANSIColor::coloring = false
 end
 
-app = BasicApp::App.new(FileUtils.pwd, options)
+app = Oct::App.new(FileUtils.pwd, options)
 app.run
