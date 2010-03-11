@@ -16,3 +16,4 @@ module Oct
 end
 
 require 'oct/app'
+require 'oct/oct'
