@@ -2,21 +2,21 @@
 
 $:.unshift(File.dirname(__FILE__) + '/../lib')
 
-require 'oct'
+require 'basic_app'
 require 'optparse'
 require 'term/ansicolor'
 
-available_actions = %w(mount unmount copy)
+available_actions = BasicApp::AVAILABLE_ACTIONS
 
 banner = <<BANNER
 TODO: application tag line
 
   Usage: oct [options]
-
 BANNER
+banner << "\nActions: #{available_actions.join(' ')}\n" unless available_actions.empty?
 
-help = <<HELP
-#{banner}
+help = banner
+help += <<HELP
 
 Options:
  
@@ -39,7 +39,7 @@ OptionParser.new do |opts|
   end
 
   opts.on("--version", "Display current version") do
-    puts "oct, version " + Oct.version
+    puts "basic_app, version " + BasicApp.version
     exit 0
   end
 
@@ -57,26 +57,14 @@ OptionParser.new do |opts|
     exit 0
   end
   
-
   begin
     opts.parse!
   rescue OptionParser::InvalidOption => e
-    puts "oct #{e}"
-    puts "oct --help for more information"
+    puts "basic_app #{e}"
+    puts "basic_app --help for more information"
     exit 1
   end
 
-end
-
-action = ARGV.shift
-unless available_actions.include?(action)
-  if action.nil?
-    puts banner
-  else
-    puts "oct invalid action: #{action}"
-  end
-  puts "oct --help for more information"
-  exit 1
 end
 
 if STDOUT.isatty
@@ -85,5 +73,5 @@ else
   Term::ANSIColor::coloring = false
 end
 
-app = Oct::App.new(FileUtils.pwd, options)
-app.run(action)
+app = BasicApp::App.new(FileUtils.pwd, options)
+app.run
