@@ -10,8 +10,14 @@ begin
     gem.email = "robert@gearheadforhire.com"
     gem.homepage = "http://github.com/robertwahler/oct"
     gem.authors = ["Robert Wahler"]
+
+    gem.add_dependency 'term-ansicolor', '>= 1.0.4'
+    gem.add_dependency 'configatron', '>= 2.5.1'
+
     gem.add_development_dependency "rspec", ">= 1.2.9"
-    gem.add_development_dependency "cucumber", ">= 0"
+    gem.add_development_dependency "cucumber", ">= 0.6"
+    gem.add_development_dependency "aruba", ">= 0.1.7"
+
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
