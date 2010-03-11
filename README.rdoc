@@ -1,10 +1,6 @@
-= BasicApp
+= Oct
 
-A basic RubyGem structure for command line applications. BasicApp provides
-no stand-alone functionality.  It purpose is to provide a repository for
-jump-starting a new RubyGem based CLI application.
-
-See CLONING.rdoc for more info.
+Command line octal file permissions
 
 == Note on Patches/Pull Requests
  
