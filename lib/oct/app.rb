@@ -5,7 +5,7 @@ class String
   include Term::ANSIColor
 end
 
-module BasicApp
+module Oct
   class App
 
     def initialize(base_dir, options={})
@@ -20,16 +20,16 @@ module BasicApp
 
     def run(action)
       begin
-        puts "basic_app run action: #{action}".cyan if @options[:verbose]
+        puts "oct run action: #{action}".cyan if @options[:verbose]
         result = send(action)
         exit(result ? 0 : 1)
       rescue SystemExit => e
         # This is the normal exit point, exit code from the send result
         # or exit from another point in the system
-        puts "basic_app run system exit: #{e}, status code: #{e.status}".green if @options[:verbose]
+        puts "oct run system exit: #{e}, status code: #{e.status}".green if @options[:verbose]
         exit(e.status)
       rescue Exception => e
-        STDERR.puts("basic_app command failed, error(s) follow:")
+        STDERR.puts("oct command failed, error(s) follow:")
         STDERR.puts("#{e.message}".red)
         STDERR.puts(e.backtrace.join("\n")) if @options[:verbose]
         exit(1)
@@ -45,7 +45,7 @@ module BasicApp
     # read options for YAML config with ERB processing and initialize configatron
     def configure(options)
       config = @options[:config]
-      config = File.join(@base_dir, 'basic_app.conf') unless config
+      config = File.join(@base_dir, 'oct.conf') unless config
       if File.exists?(config)
         # load configatron options from the config file
         puts "loading config file: #{config}".cyan if @options[:verbose]

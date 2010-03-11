@@ -7,12 +7,12 @@ Feature: Options via a command line interface (CLI)
   In order to configure options
 
   Scenario: Version info
-    When I run "basic_app --version"
+    When I run "oct --version"
     Then the exit status should be 0
-    And I should see matching "basic_app, version ([\d]+\.[\d]+\.[\d]+$)"
+    And I should see matching "oct, version ([\d]+\.[\d]+\.[\d]+$)"
 
   Scenario: Help
-    When I run "basic_app --help"
+    When I run "oct --help"
     Then the exit status should be 0
     And I should see matching: 
       """
@@ -28,7 +28,7 @@ Feature: Options via a command line interface (CLI)
       """
 
   Scenario: No command line options
-    When I run "basic_app"
+    When I run "oct"
     Then the exit status should be 1
     And I should see matching: 
       """
@@ -40,7 +40,7 @@ Feature: Options via a command line interface (CLI)
       """
 
   Scenario: Invalid option
-    When I run "basic_app --non-existing-option"
+    When I run "oct --non-existing-option"
     Then the exit status should be 1
     And I should see matching: 
       """
