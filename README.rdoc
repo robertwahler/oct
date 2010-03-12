@@ -36,7 +36,12 @@ Here is an equivalent bash script
 
 == Installation
 
-    sudo gem install oct
+This gem is not published on RubyGems.org. It can be installed manually as follows:
+
+    cd ~/tmp
+    git clone git://github.com/robertwahler/oct.git
+    cd oct
+    sudo rake install
 
 == Example
 
