@@ -42,8 +42,9 @@ module Oct
           #
           # default action if action_argument_required? is false
           #
-          filestat = Oct::FileStat.new
-          filestat.mode('*')
+          filespec = ARGV.shift
+          filespec ||= '*'
+          Oct::FileStat.new.mode(filespec)
         end
 
         exit(result ? 0 : 1)

@@ -2,6 +2,64 @@
 
 Command line octal file permissions
 
+== Why?
+
+Oct is a sample RubyGem application cloned from BasicApp.
+See http://github.com/robertwahler/basic_app for more information.
+
+Oct does scratch an itch.  'Chmod' is easier to drive in octal and I can't 
+convince 'ls -l' to output permissions in octal.
+
+Here is an equivalent bash script
+
+    #!/bin/bash
+    # octal file listing
+
+    if [ "$1" == "" ]
+    then
+      PARAM="*"
+    else
+      PARAM="$@"
+    fi
+
+    for file in $PARAM
+    do
+
+      if [ ! -e "$file" ]       # Check if file exists.
+      then
+        echo "$file does not exist."; echo
+        continue                # On to next.
+       fi
+
+       stat --format='%a,%U,%G,%t %n' $file
+    done 
+
+== Installation
+
+    sudo gem install oct
+
+== Example
+
+ls -l
+
+    drwxr-xr-x 2 robert robert 4096 2010-03-11 17:30 bin
+    -rw-r--r-- 1 robert robert 3056 2010-03-11 17:22 CLONING.rdoc
+    drwxr-xr-x 2 robert robert 4096 2010-03-11 12:03 config
+    drwxr-xr-x 4 robert robert 4096 2010-03-11 17:30 features
+    drwxr-xr-x 3 robert robert 4096 2010-03-11 14:06 lib
+    -rw-r--r-- 1 robert robert 1064 2010-03-11 12:03 LICENSE
+    -rw-r--r-- 1 robert robert 2369 2010-03-11 14:37 oct.gemspec
+    -rw-r--r-- 1 robert robert 1864 2010-03-11 14:28 Oct.gemspec
+    -rw-r--r-- 1 robert robert 1760 2010-03-11 14:37 Rakefile
+    -rw-r--r-- 1 robert robert  554 2010-03-11 14:28 README.rdoc
+    -rw-r--r-- 1 robert robert    1 2010-03-11 17:33 rerun.txt
+    drwxr-xr-x 2 robert robert 4096 2010-03-11 17:22 spec
+    drwxr-xr-x 3 robert robert 4096 2010-03-11 17:32 tmp
+    -rw-r--r-- 1 robert robert    6 2010-03-11 14:47 VERSION
+
+oct
+
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
