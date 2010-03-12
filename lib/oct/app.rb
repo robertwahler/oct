@@ -42,9 +42,8 @@ module Oct
           #
           # default action if action_argument_required? is false
           #
-          filespec = ARGV.shift
-          filespec ||= '*'
-          Oct::FileStat.new.mode(filespec)
+          files = ARGV.empty? ? Dir.glob('*') : ARGV
+          result = Oct::FileStat.new.mode(files, @options)
         end
 
         exit(result ? 0 : 1)

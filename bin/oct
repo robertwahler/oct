@@ -9,9 +9,9 @@ require 'term/ansicolor'
 available_actions = Oct::AVAILABLE_ACTIONS
 
 banner = <<BANNER
-TODO: application tag line
+Octal file listing
 
-  Usage: oct [options]
+  Usage: oct [options] [FILES]
 BANNER
 banner << "\nActions: #{available_actions.join(' ')}\n" unless available_actions.empty?
 
