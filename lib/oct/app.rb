@@ -61,8 +61,6 @@ module Oct
       end
     end
 
-  private
-
     #
     # app commands start
     #
@@ -71,6 +69,8 @@ module Oct
     #
     # app commands end
     #
+
+  private
 
     # true if application requires an action to be specified on the command line
     def action_argument_required?
