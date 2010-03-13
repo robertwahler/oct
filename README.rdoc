@@ -41,6 +41,7 @@ This gem is not published on RubyGems.org. It can be installed manually as follo
     cd ~/tmp
     git clone git://github.com/robertwahler/oct.git
     cd oct
+    # requires jeweler
     sudo rake install
 
 == Example
