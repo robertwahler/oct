@@ -13,7 +13,7 @@ Feature: Octal file listing
   Scenario: No files on the command line
     When I run "oct"
     Then the exit status should be 0
-    And I should see:
+    And the output should contain:
       """
       0644 file1.txt
       0644 file2.txt
@@ -22,11 +22,11 @@ Feature: Octal file listing
   Scenario: Files on the command line
     When I run "oct file1*"
     Then the exit status should be 0
-    And I should see:
+    And the output should contain:
       """
       0644 file1.txt
       """
-    And I should not see:
+    And the output should not contain:
       """
       0644 file2.txt
       """
