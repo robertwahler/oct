@@ -9,12 +9,12 @@ Feature: Options via a command line interface (CLI)
   Scenario: Version info
     When I run "oct --version"
     Then the exit status should be 0
-    And I should see matching /oct, version ([\d]+\.[\d]+\.[\d]+$)/
+    And the output should match /oct, version ([\d]+\.[\d]+\.[\d]+$)/
 
   Scenario: Help
     When I run "oct --help"
     Then the exit status should be 0
-    And I should see matching: 
+    And the output should match: 
       """
       .*
         Usage: .*
@@ -27,7 +27,7 @@ Feature: Options via a command line interface (CLI)
   Scenario: Invalid option
     When I run "oct --non-existing-option"
     Then the exit status should be 1
-    And I should see matching: 
+    And the output should match: 
       """
       ^.* invalid option: --non-existing-option
       ^.* --help for more information
