@@ -8,7 +8,9 @@ Feature: Octal file listing
 
   Background: A bunch of files
     Given an empty file named "file2.txt"
+    And file "file2.txt" is chmod 0644
     Given an empty file named "file1.txt"
+    And file "file1.txt" is chmod 0644
 
   Scenario: No files on the command line
     When I run "oct"
