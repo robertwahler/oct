@@ -2,6 +2,9 @@ module Oct
 
   class FileStat
 
+    # print octal file listing
+    #
+    # @param [Array] files files to be listed
     def mode(files, options={})
       puts "oct mode files: #{files.inspect}".cyan if options[:verbose]
       files.sort.each do |file|
