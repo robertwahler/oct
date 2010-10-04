@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'oct/app'
 require 'oct/oct'
 
