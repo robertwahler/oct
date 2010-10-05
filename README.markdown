@@ -41,18 +41,18 @@ Here is an equivalent bash script
 Run-time dependencies 
 ---------------------
 
-* Term-ansicolor for optional color output [http://github.com/flori/term-ansicolor](http://github.com/flori/term-ansicolor)
-* Configatron for configuration support [http://github.com/markbates/configatron](http://github.com/markbates/configatron)
+* Term-ansicolor for optional color output <http://github.com/flori/term-ansicolor>
+* Configatron for configuration support <http://github.com/markbates/configatron>
 
 
 Development dependencies
 ------------------------
 
-* Bundler for dependency management [http://github.com/carlhuda/bundler](http://github.com/carlhuda/bundler)
-* Rspec for unit testing [http://github.com/dchelimsky/rspec](http://github.com/dchelimsky/rspec)
-* Cucumber for functional testing [http://github.com/aslakhellesoy/cucumber](http://github.com/aslakhellesoy/cucumber)
-* Aruba for CLI testing [http://github.com/aslakhellesoy/aruba](http://github.com/aslakhellesoy/aruba)
-* YARD for documentation generation [http://github.com/lsegal/yard/wiki](http://github.com/lsegal/yard/wiki)
+* Bundler for dependency management <http://github.com/carlhuda/bundler>
+* Rspec for unit testing <http://github.com/dchelimsky/rspec>
+* Cucumber for functional testing <http://github.com/aslakhellesoy/cucumber>
+* Aruba for CLI testing <http://github.com/aslakhellesoy/aruba>
+* YARD for documentation generation <http://github.com/lsegal/yard>
 
 
 Installation
