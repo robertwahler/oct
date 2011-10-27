@@ -44,13 +44,15 @@ end
 
 def run(cmd)
 
+  cmd = 'bundle exec ' + cmd unless cmd.match(/^bundle exec/)
+
   pid = fork do
 
     puts "\n"
     if $c
       print $c.cyan, cmd, $c.clear, "\n"
     else
-      puts cmd 
+      puts cmd
     end
 
     exec(cmd)

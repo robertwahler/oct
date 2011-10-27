@@ -1,8 +1,5 @@
 #!/usr/bin/env ruby
 
-$:.unshift(File.dirname(__FILE__) + '/../lib')
-
-require 'rubygems'
 require 'oct'
 require 'optparse'
 require 'term/ansicolor'
@@ -20,23 +17,24 @@ help = banner
 help += <<HELP
 
 Options:
- 
+
 HELP
 
 options = {}
 OptionParser.new do |opts|
   opts.banner = help
 
-  # set defaults
-  options[:verbose] = false
-  options[:coloring] = true
-
   opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
     options[:verbose] = v
   end
 
-  opts.on("-c", "--[no-]coloring", "Ansi color in output") do |c|
-    options[:coloring] = c
+  opts.on("-c", "--[no-]coloring [MODE]", "--[no-]color [MODE]", "ANSI color in output. MODE=AUTO (default) or ALWAYS") do |c|
+    options[:color] = c.nil? ? "AUTO" : c
+    options[:color].upcase! if options[:color]
+    unless [nil, false, "AUTO", "ALWAYS"].include?(options[:color])
+      puts "basic_app, invalid color option: #{options[:color]}"
+      exit 1
+    end
   end
 
   opts.on("--version", "Display current version") do
@@ -44,16 +42,16 @@ OptionParser.new do |opts|
     exit 0
   end
 
-#   opts.on("--config FILE", "Load configuration options from FILE") do |file|
-#     options[:config] = file 
-#   end
+  opts.on("--config FILE", "Load configuration options from FILE") do |file|
+    options[:config] = file
+  end
 
   # no argument, shows at tail.  This will print an options summary.
   opts.on_tail("-h", "--help", "Show this message") do
     puts opts
     exit 0
   end
-  
+
   begin
     opts.parse!
   rescue OptionParser::InvalidOption => e
@@ -64,15 +62,20 @@ OptionParser.new do |opts|
 
 end
 
-if STDOUT.isatty
-  Term::ANSIColor::coloring = options[:coloring]
+# options from config file, if it exists, will not overwrite command line
+options = Oct::Settings.new(FileUtils.pwd, options).options
 
-  if options[:coloring] && Oct::WINDOWS
-    begin
-      require 'Win32/Console/ANSI'
-    rescue LoadError
-      Term::ANSIColor::coloring = false
-      STDERR.puts 'WARNING: You must "gem install win32console" (1.2.0 or higher) to get color output on MRI/Windows'
+if STDOUT.isatty || (options[:color] == 'ALWAYS')
+  Term::ANSIColor::coloring = options[:color]
+
+  if options[:color] && Oct::WINDOWS
+    unless ENV['ANSICON']
+      begin
+        require 'Win32/Console/ANSI'
+      rescue LoadError
+        Term::ANSIColor::coloring = false
+        STDERR.puts 'WARNING: You must "gem install win32console" (1.2.0 or higher) or use the ANSICON driver (https://github.com/adoxa/ansicon) to get color output on MRI/Windows'
+      end
     end
   end
 
@@ -80,5 +83,5 @@ else
   Term::ANSIColor::coloring = false
 end
 
-app = Oct::App.new(FileUtils.pwd, options)
-app.run
+app = Oct::App.new(FileUtils.pwd, ARGV.dup, options)
+app.execute

@@ -1,6 +1,9 @@
 # require all files here
 require 'rbconfig'
+require 'oct/core/hash'
+require 'oct/core/array'
 require 'oct/app'
+require 'oct/settings'
 require 'oct/oct'
 
 # Master namespace
