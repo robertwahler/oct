@@ -33,7 +33,7 @@ namespace :doc do
 
   YARD::Rake::YardocTask.new(:generate) do |yt|
     yt.options = ['--output-dir', doc_destination,
-                  '--title', "BasicApp #{doc_version} Documentation",
+                  '--title', "Oct #{doc_version} Documentation",
                   '--main', "README.markdown"
                  ]
   end

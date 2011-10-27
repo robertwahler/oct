@@ -17,14 +17,14 @@ Feature: Configuration via yaml file
 
   Scenario: Specified config file exists
     Given an empty file named "config.conf"
-    When I run `basic_app action --verbose --config config.conf`
+    When I run `oct action --verbose --config config.conf`
     Then the output should contain:
       """
       config file: config.conf
       """
 
   Scenario: Specified config file option but not given on command line
-    When I run `basic_app action --verbose --config`
+    When I run `oct action --verbose --config`
     Then the exit status should be 1
     And the output should contain:
       """
@@ -32,7 +32,7 @@ Feature: Configuration via yaml file
       """
 
   Scenario: Specified config file not found
-    When I run `basic_app path --verbose --config config.conf`
+    When I run `oct path --verbose --config config.conf`
     Then the exit status should be 1
     And the output should contain:
       """
@@ -41,7 +41,7 @@ Feature: Configuration via yaml file
 
  Scenario: Reading options from specified config file, ignoring the
     default config file
-    Given a file named "basic_app.conf" with:
+    Given a file named "oct.conf" with:
       """
       ---
       options:
@@ -53,7 +53,7 @@ Feature: Configuration via yaml file
       options:
         color: false
       """
-    When I run `basic_app action --verbose --config no_color.conf`
+    When I run `oct action --verbose --config no_color.conf`
     Then the output should contain:
       """
       :color=>false
@@ -65,7 +65,7 @@ Feature: Configuration via yaml file
 
   Scenario: Reading options from specified config file, ignoring the
     default config file with override on command line
-    Given a file named "basic_app.conf" with:
+    Given a file named "oct.conf" with:
       """
       ---
       options:
@@ -77,7 +77,7 @@ Feature: Configuration via yaml file
       options:
         color: false
       """
-    When I run `basic_app action --verbose --config no_color.conf --color`
+    When I run `oct action --verbose --config no_color.conf --color`
     Then the output should contain:
       """
       :color=>"AUTO"
@@ -98,7 +98,7 @@ Feature: Configuration via yaml file
       options:
         color: true
       """
-    When I run `basic_app action --verbose --config with_color.conf --no-color`
+    When I run `oct action --verbose --config with_color.conf --no-color`
     Then the output should contain:
       """
       :color=>false
@@ -111,7 +111,7 @@ Feature: Configuration via yaml file
       options:
         color: true
       """
-    When I run `basic_app action --verbose --config with_color.conf --no-coloring`
+    When I run `oct action --verbose --config with_color.conf --no-coloring`
     Then the output should contain:
       """
       :color=>false
@@ -124,7 +124,7 @@ Feature: Configuration via yaml file
       options:
         color: ALWAYS
       """
-    When I run `basic_app action --verbose --config with_always_color.conf`
+    When I run `oct action --verbose --config with_always_color.conf`
     Then the output should contain:
       """
       :color=>"ALWAYS"

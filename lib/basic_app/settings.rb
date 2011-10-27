@@ -1,6 +1,6 @@
 require 'yaml'
 
-module BasicApp
+module Oct
 
   class Settings
 
@@ -31,10 +31,10 @@ module BasicApp
       config = @options[:config]
       unless config
         config = [
-                   File.join(@working_dir, "basic_app.conf"),
-                   File.join(@working_dir, ".basic_app.conf"),
-                   File.join(@working_dir, "config", "basic_app.conf"),
-                   File.expand_path(File.join("~", ".basic_app.conf"))
+                   File.join(@working_dir, "oct.conf"),
+                   File.join(@working_dir, ".oct.conf"),
+                   File.join(@working_dir, "config", "oct.conf"),
+                   File.expand_path(File.join("~", ".oct.conf"))
                  ].detect { |filename| File.exists?(filename) }
       end
 

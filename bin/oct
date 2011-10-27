@@ -32,7 +32,7 @@ OptionParser.new do |opts|
     options[:color] = c.nil? ? "AUTO" : c
     options[:color].upcase! if options[:color]
     unless [nil, false, "AUTO", "ALWAYS"].include?(options[:color])
-      puts "basic_app, invalid color option: #{options[:color]}"
+      puts "oct, invalid color option: #{options[:color]}"
       exit 1
     end
   end
