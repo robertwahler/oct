@@ -10,7 +10,7 @@ Why?
 Oct is a sample RubyGem application cloned from BasicApp.
 See <http://github.com/robertwahler/basic_app> for more information.
 
-Oct does scratch an itch.  'Chmod' is easier to drive in octal and I can't 
+Oct does scratch an itch.  'Chmod' is easier to drive in octal and I can't
 convince 'ls -l' to output permissions in octal.
 
 Here is an equivalent bash script
@@ -35,10 +35,10 @@ Here is an equivalent bash script
        fi
 
        stat --format='%a,%U,%G,%t %n' $file
-    done 
+    done
 
 
-Run-time dependencies 
+Run-time dependencies
 ---------------------
 
 * Term-ansicolor for optional color output <http://github.com/flori/term-ansicolor>
@@ -58,7 +58,7 @@ Development dependencies
 Installation
 ------------
 
-This gem has been published on RubyGems.org 
+This gem has been published on RubyGems.org
 
     gem install oct
 
@@ -73,7 +73,7 @@ oct --help
       Usage: oct [options] [FILES]
 
     Options:
-     
+
         -v, --[no-]verbose               Run verbosely
         -c, --[no-]coloring              Ansi color in output
             --version                    Display current version

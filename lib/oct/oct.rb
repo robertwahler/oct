@@ -9,7 +9,7 @@ module Oct
       puts "oct mode files: #{files.inspect}".cyan if options[:verbose]
       files.sort.each do |file|
         stat = File.stat(file)
-        printf("%04o ", stat.mode & 07777)        
+        printf("%04o ", stat.mode & 07777)
         if stat.directory?
           puts file.blue
         elsif stat.executable?
@@ -19,7 +19,7 @@ module Oct
         else
           puts file
         end
-      end 
+      end
     end
 
   end
