@@ -13,7 +13,7 @@ Feature: Octal file listing
     And file "file1.txt" is chmod 0644
 
   Scenario: No files on the command line
-    When I run "oct"
+    When I run `oct`
     Then the exit status should be 0
     And the output should contain:
       """
@@ -22,7 +22,7 @@ Feature: Octal file listing
       """
 
   Scenario: Files on the command line
-    When I run "oct file1*"
+    When I run `oct file1.txt`
     Then the exit status should be 0
     And the output should contain:
       """
