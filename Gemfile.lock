@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    oct (0.2.0)
+    oct (0.3.0)
       term-ansicolor (>= 1.0.4)
 
 GEM
