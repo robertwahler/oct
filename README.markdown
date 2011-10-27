@@ -42,18 +42,17 @@ Run-time dependencies
 ---------------------
 
 * Term-ansicolor for optional color output <http://github.com/flori/term-ansicolor>
-* Configatron for configuration support <http://github.com/markbates/configatron>
 
 
 Development dependencies
 ------------------------
 
 * Bundler for dependency management <http://github.com/carlhuda/bundler>
-* Rspec for unit testing <http://github.com/dchelimsky/rspec>
-* Cucumber for functional testing <http://github.com/aslakhellesoy/cucumber>
-* Aruba for CLI testing <http://github.com/aslakhellesoy/aruba>
-* YARD for documentation generation <http://github.com/lsegal/yard>
-
+* Rspec for unit testing <http://github.com/rspec/rspec>
+* Cucumber for functional testing <http://github.com/cucumber/cucumber>
+* Aruba for CLI testing <http://github.com/cucumber/aruba>
+* Yard for documentation generation <http://github.com/lsegal/yard>
+* Redcarpet for documentation markup processing <http://github.com/tanoku/redcarpet>
 
 Installation
 ------------
@@ -98,4 +97,4 @@ oct
 Copyright
 ---------
 
-Copyright (c) 2010 GearheadForHire, LLC. See [LICENSE](LICENSE) for details.
+Copyright (c) 2010-2011 GearheadForHire, LLC. See [LICENSE](LICENSE) for details.
