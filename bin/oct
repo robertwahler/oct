@@ -3,6 +3,7 @@
 require 'oct'
 require 'optparse'
 require 'term/ansicolor'
+require 'fileutils'
 
 available_actions = Oct::AVAILABLE_ACTIONS
 
