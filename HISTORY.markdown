@@ -6,6 +6,10 @@ Most recent changes are at the top
 Changes
 -------
 
+### 0.3.1 - 06/11/2013 ###
+
+* Use RbConfig instead of Config for Ruby 1.9
+
 ### 0.3.0 - 10/27/2011 ###
 
 * Add configuration files via the BasicApp framework, see features/settings.feature
