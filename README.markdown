@@ -96,4 +96,4 @@ oct
 Copyright
 ---------
 
-Copyright (c) 2010-2011 GearheadForHire, LLC. See [LICENSE](LICENSE) for details.
+Copyright (c) 2010-2017 GearheadForHire, LLC. See [LICENSE](LICENSE) for details.
