@@ -41,6 +41,7 @@ Here is an equivalent bash script
 Run-time dependencies
 ---------------------
 
+* Ruby 1.9.3
 * Term-ansicolor for optional color output <http://github.com/flori/term-ansicolor>
 
 
@@ -51,8 +52,6 @@ Development dependencies
 * Rspec for unit testing <http://github.com/rspec/rspec>
 * Cucumber for functional testing <http://github.com/cucumber/cucumber>
 * Aruba for CLI testing <http://github.com/cucumber/aruba>
-* Yard for documentation generation <http://github.com/lsegal/yard>
-* Redcarpet for documentation markup processing <http://github.com/tanoku/redcarpet>
 
 Installation
 ------------
