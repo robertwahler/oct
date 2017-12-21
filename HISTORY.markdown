@@ -6,6 +6,10 @@ Most recent changes are at the top
 Changes
 -------
 
+### 0.3.3 - 12/21/2017 ###
+
+* Remove Gemfile.lock
+
 ### 0.3.2 - 12/21/2017 ###
 
 * Update and remove dependencies with known security issues
